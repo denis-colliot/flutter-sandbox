@@ -1,6 +1,6 @@
 # flutter_sandbox
 
-My Flutter sanbox project.
+My Flutter sandbox project.
 
 ## Getting Started
 

@@ -1,16 +1,42 @@
-# flutter_sandbox
+# Description
 
-My Flutter sandbox project.
+Flutter sandbox project rendering beers from [Punk API](https://punkapi.com/documentation/v2) using
+a **clean architecture** with **MVVM pattern** (with `ViewModel`).
 
-## Getting Started
+Each feature directory contains following structure:
 
-This project is a starting point for a Flutter application.
+```
+/feature
+    /data
+        /datasource
+        /model
+        /repository
+    /domain # Should NEVER depend on `data` or `presentation`
+        /model
+        /repository
+        /usecase
+    /presentation
+        /model
+        /viewmodel
+        /widget
+```
 
-A few resources to get you started if this is your first Flutter project:
+# Dependencies
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Retrofit](https://pub.dev/packages/retrofit)
+- [get_it](https://pub.dev/packages/get_it)
+- [mockito](https://pub.dev/packages/mockito)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+On any change to Retrofit API or test mock, run following command:
+
+```shell
+flutter pub run build_runner build
+```
+
+# Run
+
+To execute app tests, simply run following command:
+
+```shell
+flutter test
+```

@@ -3,17 +3,19 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox/widget/random_words.widget.dart';
+import 'package:flutter_sandbox/src/features/beers/presentation/widget/beers_list.dart';
+import 'package:flutter_sandbox/src/injection.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  await initDependencyInjection();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final randomWordsWidget = RandomWords();
-
     return MaterialApp(
-      title: 'Startup name Generator',
+      title: 'Beers, beers, beers',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: randomWordsWidget,
+      home: BeersList(),
     );
   }
 }
